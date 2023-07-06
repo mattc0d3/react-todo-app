@@ -1,7 +1,7 @@
-import dogsArray from "../assets/gallery-pics"
+// import dogsArray from "../assets/gallery-pics"
 
-const ArrowButtons = ({ position, setPosition }) => {
-    const totalImages = dogsArray.length - 1
+const ArrowButtons = ({ position, setPosition, length}) => {
+    const totalImages = length
 
     const incrementPosition = () => {
         if (position === totalImages) {

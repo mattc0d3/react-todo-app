@@ -1,10 +1,13 @@
 import ArrowButtons from "./Arrow-Buttons"
-import PositionCounter from "./Position-Counter"
 
-const Gallery = () => {
+
+
+const Gallery = ({ position , picsArray }) => {
+
     return <div>
-        <h1>Gallery</h1>
-        < PositionCounter />
+        
+        <img className='main-image' src={picsArray[position]} alt="pic of dog" />
+        
     </div>
 }
 

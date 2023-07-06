@@ -1,6 +1,6 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   font-weight: 400;
 
   color-scheme: light dark;
@@ -25,6 +25,7 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -32,8 +33,9 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  margin-top:10px;
+  font-size: 2.2em;
+  
 }
 
 button {
@@ -67,3 +69,66 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* .preview-panel{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+} */
+
+.preview-panel{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width:70vw;
+  margin:auto;
+}
+
+.image-card{
+  
+  margin: 10px;
+}
+
+.main-image{
+  width:70vw;
+}
+
+.preview-pic{
+  width:15vw;
+  -webkit-transition-property: all; 
+-webkit-transition-duration: 0.3s; 
+-webkit-transition-timing-function: ease; 
+  
+}
+.preview-pic:hover{
+  cursor: pointer;
+  transform: scale(1.1); 
+}
+
+@media only screen and (max-width: 660px) {
+  .preview-panel{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    width:90vw;
+    justify-content: center;
+  }
+  .main-image{
+    width:90vw;
+  }
+  .preview-pic{
+    width:35vw;
+  }
+
+  .image-card{
+    margin:2px;
+  }
+}
+
+
+
+
+/* @media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+} */
