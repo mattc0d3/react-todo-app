@@ -13,18 +13,22 @@ function handleDelete(e){
 
 function handleCheck(e){
     setTodoList((currList)=>{
-        if (currList[index].isDone === false) {
-            currList[index].isDone = true
+        const listCopy = [...currList]
+        console.log(listCopy[index].isDone)
+        if (listCopy[index].isDone === false) {
+            listCopy[index].isDone = true
         } else {
-            currList[index].isDone = false
+            listCopy[index].isDone = false
         }
-        return currList
+        console.log(listCopy[index], "<<<<< element after adding class")
+        return listCopy
     })
 }
 
-    return <li>{task.task}
-        <input type="checkbox" onClick={handleCheck}></input>
-        <button onClick={handleDelete}>X</button>
+    return <li className="grid-list" >
+        <p className={task.isDone ? "task-item done" : "task-item"}>{task.task}</p>
+        <input className="check-button" type="checkbox" onChange={handleCheck} defaultChecked={task.isDone}></input>
+        <button className="delete-btn" onClick={handleDelete}>X</button>
     </li>
 }
 

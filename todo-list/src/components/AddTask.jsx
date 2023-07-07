@@ -1,25 +1,31 @@
 import { useState } from 'react';
 
 
-const AddTask = ({ todoList, setTodoList })=>{
-    const [ newTask, setNewTask ] = useState('')
+const AddTask = ({ todoList, setTodoList }) => {
+    const [newTask, setNewTask] = useState('')
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault()
-        setTodoList((currList)=>{
-            const newTaskObj = {task: newTask, isDone: false}
-            return [...currList, newTaskObj]
-        })
+        if (newTask !== "" && todoList.every(todo => todo.task !== newTask)) {
+            setTodoList((currList) => {
+                const newTaskObj = { task: newTask, isDone: false }
+                return [...currList, newTaskObj]
+            })
+        } else {
+            window.alert("Bad request :(")
+        }
         setNewTask('')
     }
 
 
-    return <form onSubmit={handleSubmit}>
-        <label htmlFor="taskinput">add task: </label>
-        <input id="taskinput" value={newTask} onChange={(e)=>{setNewTask(e.target.value)}}></input>
-        <button>+</button>
+    return <div id="form-div">
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="taskinput">add task: </label>
+            <input id="taskinput" value={newTask} onChange={(e) => { setNewTask(e.target.value) }}></input>
+            <button id="add-btn">+</button>
+        </form>
+    </div>
 
-    </form>
 }
 
 export default AddTask;
